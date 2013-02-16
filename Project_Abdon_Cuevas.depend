@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1360954970 source:c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas\main.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+	"include/project.h"
+
+1360954970 c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas\include\project.h
+
+1360956503 source:c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas\src\project.cpp
+	"../include/project.h"
+	<iostream>
+	<stdlib.h>
+	<fstream>
+	<sstream>
+	<string>
+
