@@ -15,15 +15,15 @@
 	<sstream>
 	<string>
 
-1361614868 source:c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas_2\main.cpp
+1362151988 source:c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas_2\main.cpp
 	<iostream>
 	<cstdlib>
 	<string>
 	"include/project.h"
 
-1361616544 c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas_2\include\project.h
+1362150381 c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas_2\include\project.h
 
-1361616238 source:c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas_2\src\project.cpp
+1362151888 source:c:\users\triple-j printing\documents\algorithm\project_abdon_cuevas_2\src\project.cpp
 	"../include/project.h"
 	<iostream>
 	<sstream>
@@ -32,4 +32,6 @@
 	<cmath>
 	<vector>
 	<stdio.h>
+	<algorithm>
+	<fstream>
 
