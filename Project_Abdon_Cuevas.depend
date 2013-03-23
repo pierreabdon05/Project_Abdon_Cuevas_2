@@ -35,3 +35,23 @@
 	<algorithm>
 	<fstream>
 
+1364030743 source:c:\users\arnel\documents\algorithm\project_abdon_cuevas_2\main.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+	"include/project.h"
+
+1364030743 c:\users\arnel\documents\algorithm\project_abdon_cuevas_2\include\project.h
+
+1362152253 source:c:\users\arnel\documents\algorithm\project_abdon_cuevas_2\src\project.cpp
+	"../include/project.h"
+	<iostream>
+	<sstream>
+	<string>
+	<cstdlib>
+	<cmath>
+	<vector>
+	<stdio.h>
+	<algorithm>
+	<fstream>
+

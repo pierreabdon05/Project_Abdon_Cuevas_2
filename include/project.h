@@ -29,6 +29,8 @@ class project
         void counting_sundays();
         void factorial_digit_sum();
         void names_scores();
+        void first_1000_digit_fibonacci();
+        void truncable_primes();
     protected:
     private:
 };

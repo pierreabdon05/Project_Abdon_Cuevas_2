@@ -28,11 +28,13 @@ const string PROBLEMS[]=
 	"Counting sundays",
 	"Factorial digit sum",
 	"Names Score",
+	"First 1000 digit fibonacci"
+	"Truncable Primes"
     "Exit"
 
 };
 const int NUM_PROBLEMS=1;
-const int EXIT=NUM_PROBLEMS +21;
+const int EXIT=NUM_PROBLEMS +23;
 
 int main()
 {
@@ -45,7 +47,7 @@ int main()
     {
         system("cls");
 
-        for(i=0; i< (NUM_PROBLEMS+21); i++)
+        for(i=0; i< (NUM_PROBLEMS+23); i++)
         {
             cout << (i+1) << "." << PROBLEMS[i] << endl;
         }
@@ -118,6 +120,10 @@ int main()
             case 21:
                 proj.names_scores();
                 break;
+            case 22:
+                proj.first_1000_digit_fibonacci();
+            case 23:
+                proj.truncable_primes();
             case EXIT:
                 done=true;
                 break;
