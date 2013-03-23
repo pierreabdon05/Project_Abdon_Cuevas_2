@@ -863,3 +863,182 @@ void project::names_scores()
 
     cout<< "Name Score Summation is:" << sum << endl;
 }
+void project2::first_1000_digit_fibonacci()
+{
+     string present = "1";
+    string previous = "0";
+    string temp = present;
+    string temp_sum = "";
+
+    int carry = 0;
+    int term = 1;
+    int range_pt = present.length();
+    int range_pv = previous.length();
+    while (range_pt < 1000)
+    {
+        if(range_pt > range_pv)
+        {
+            for(int i = 0; i < range_pt - range_pv; i++)
+            {
+                previous = "0" + previous;
+            }
+            range_pv = previous.length();
+        }
+
+        for(int i = range_pt - 1; i >= 0; i--)
+        {
+            int num_a = convertCharToNum(present.at(i));
+            int num_b = convertCharToNum(previous.at(i));
+            int sum = num_a + num_b + carry;
+            carry = 0;
+
+            if(sum > 9)
+            {
+                int a = sum%10;
+                sum -= a;
+                carry = sum/10;
+                temp_sum = convertNumToChar(a) + temp_sum;
+            }
+
+            else
+            {
+                temp_sum = convertNumToChar(sum) + temp_sum;
+            }
+
+            if(carry != 0 && i == 0)
+            {
+                temp_sum = convertNumToChar(carry) + temp_sum;
+                carry = 0;
+            }
+        }
+
+        temp = present;
+        present = temp_sum;
+        previous = temp;
+        term++;
+        temp_sum = "";
+        range_pt = present.length();
+        range_pv = previous.length();
+    }
+    cout <<  term << endl;
+}
+bool right(int i)
+{
+    ostringstream convert;
+    convert << i;
+    string x = convert.str();
+    int temp;
+    int remainder;
+    int divide = 10;
+    int times = 1;
+    bool prime = true;
+    int range = x.length();
+
+
+    for(int k = 0; k < range - 1 ; k++)
+    {
+        if(x.at(0) == '1' || x.at(0) == '4' || x.at(0) == '6' || x.at(0) == '8')
+        {
+            prime = false;
+            break;
+        }
+
+        divide = divide*times;
+        remainder = i%divide;
+        temp = i - remainder;
+        temp = temp/divide;
+
+        if(temp == 1)
+        {
+            prime = false;
+            break;
+        }
+
+        for(int j = 2; j < temp; j++)
+        {
+            if(temp%j == 0)
+            {
+                prime = false;
+                k = range;
+                break;
+            }
+        }
+
+        times *= 10;
+    }
+
+    return prime;
+}
+
+bool left(int i)
+{
+    ostringstream convert;
+    convert << i;
+    string x = convert.str();
+    bool prime = true;
+    int range = x.length();
+    int divide = 1;
+    int remainder;
+    int temp;
+    for(int k = 0; k < range; k++)
+    {
+        divide *= 10;
+    }
+
+    for(int k = 0; k < range; k++)
+    {
+
+        temp = i%divide;
+
+        if(temp == 1)
+        {
+            prime = false;
+            break;
+        }
+
+        for(int j = 2; j < temp; j++)
+        {
+            if(temp%j == 0)
+            {
+                k = range;
+                prime = false;
+                break;
+            }
+        }
+
+        divide /= 10;
+    }
+    return prime;
+}
+void project2::truncable_primes()
+{
+    int number = 23;
+    int term = 0;
+    int sum = 0;
+    bool ok;
+    while(term < 11)
+    {
+        ok = true;
+        for(int a = 2; a < number; a++)
+        {
+            if(number%a == 0)
+            {
+                ok = false;
+                break;
+            }
+        }
+
+        if(ok)
+        {
+            if(right(number) && left(number))
+            {
+                sum += number;
+                term++;
+            }
+        }
+
+        number += 2;
+    }
+
+    cout << "Total: " << sum << endl;
+}
