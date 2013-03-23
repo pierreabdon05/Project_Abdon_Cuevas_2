@@ -18,7 +18,7 @@ class project
         void special_pytho_triplet();
         void summation_of_primes();
         void largest_product_grid();
-        bool Prime_check(long num);
+            bool Prime_check(long num);
         void divisible_triangular_number();
         void largest_sum();
         void longest_collatz_sequence();
@@ -29,8 +29,13 @@ class project
         void counting_sundays();
         void factorial_digit_sum();
         void names_scores();
+            int convertCharToNum(char num1);
+            char convertNumToChar(int num1);
         void first_1000_digit_fibonacci();
+            int isprime(int n);
+            int power(int a, int b);
         void truncable_primes();
+
     protected:
     private:
 };

@@ -28,8 +28,8 @@ const string PROBLEMS[]=
 	"Counting sundays",
 	"Factorial digit sum",
 	"Names Score",
-	"First 1000 digit fibonacci"
-	"Truncable Primes"
+	"First 1000 digit fibonacci",
+	"Truncable Primes",
     "Exit"
 
 };
@@ -122,8 +122,10 @@ int main()
                 break;
             case 22:
                 proj.first_1000_digit_fibonacci();
+                break;
             case 23:
                 proj.truncable_primes();
+                break;
             case EXIT:
                 done=true;
                 break;

@@ -24,7 +24,7 @@ project::~project()
 void project::multiples_3_and_5()
 {
     int total = 0;
-
+    cout << "computing..." << endl;
     for(int i = 0; i < 1000; i++){
         if(i%3 == 0 || i%5 == 0){
             total += i;
@@ -36,7 +36,7 @@ void project::multiples_3_and_5()
 void project::even_fibonacce()
 {
     int sum = 0, num1 = 1, num2 = 1, temp;
-
+    cout << "computing..." << endl;
 
     while(num1 < 4000000){
         if(num1%2 == 0){
@@ -54,6 +54,7 @@ void project::largest_prime_factor()
 {
     unsigned long long BIG = 600851475143LL;
     unsigned long long count;
+    cout << "computing..." << endl;
 
     for(count = 2; count < BIG/2; count++)
     {
@@ -69,7 +70,8 @@ void project::largest_prime_factor()
 void project::largest_palindrome_product()
 {
       int numbers[2];
-    int highest = 0;
+      int highest = 0;
+    cout << "computing..." << endl;
 
     for(int i = 1000 -1 ; i > 100; i--)
     {
@@ -103,6 +105,7 @@ void project::largest_palindrome_product()
 void project::smallest_multiple()
 {
     int i = 1;
+    cout << "computing..." << endl;
     bool k = false;
 
     while ( !k )
@@ -135,6 +138,7 @@ void project::sum_square_diff(){
     int sum = 0;
     int sqr = 0;
     int temp = 0;
+    cout << "computing..." << endl;
 
     for(int i = 1; i <= 100; i++){
         sum += i;
@@ -147,6 +151,7 @@ void project::sum_square_diff(){
 
 void project::the_10001st_prime(){
     int x = 2;
+    cout << "computing..." << endl;
 
     for(int i = 0; i < 10001; i++){
         bool c = 0;
@@ -176,6 +181,7 @@ void project::largest_product_in_series()
     int greatestProd = 1;
     int temp         = 1;
     int k            = 1;
+    cout << "computing..." << endl;
 
     string num = "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450";
 
@@ -207,6 +213,7 @@ void project::special_pytho_triplet()
     int b=4;
     int c=5;
     const int LIMIT = 1000;
+    cout << "computing..." << endl;
     for(a = 3; a < b; a++)
     {
         for(b = 4; b < c; b++)
@@ -226,6 +233,7 @@ void project::special_pytho_triplet()
 void project::summation_of_primes(){
     long long sum = 0LL;
     int range = 2000000;
+    cout << "computing..." << endl;
 
     for(int i = 2; i < range; i++){
         for(int k = 2; k <= i; k++){
@@ -270,6 +278,7 @@ void project::largest_product_grid()
     int start = 0;
     int end = 3;
     int product = 1;
+    cout << "computing..." << endl;
 
     vector<long int>final_results;
 
@@ -351,8 +360,9 @@ void project::largest_product_grid()
 void project::divisible_triangular_number()
 {
     int i,j,counter,max,ans;
-  ans=0;
-  max=0;
+    ans=0;
+    max=0;
+    cout << "computing..." << endl;
   for(i=1;i<13000;i++)
     {
     ans=ans+i;
@@ -480,6 +490,7 @@ void project::largest_sum()
 
       uint64_t summation = 0;
       int j = 0;
+      cout << "computing..." << endl;
       string string;
       while (1) {
         int sum1 = 0;
@@ -511,46 +522,93 @@ void project::largest_sum()
 
 void project::longest_collatz_sequence()
 {
-    long n, largestcounter=0,num;
 
-        for(long a=2;a<=1000000;a++)
+
+    int highest_chain = 0;
+    int number = 0;
+    int chain, i;
+    cout << "computing..." << endl;
+    unsigned int temp;
+    for(i = 1; i < 1000000; i++)
+    {
+        chain = 0;
+        temp = i;
+        while (temp > 1)
         {
-        long counter=1;
-            for(n=a;n>1;)
+            if(temp%2 == 0)
             {
-                if(n%2==0)
-                {
-                    n=n/2;
-                    counter++;
-                }
-                else
-                {
-                    n=3*n+1;
-                    counter++;
-                }
+                temp /= 2;
+                chain++;
             }
 
-            if(counter>largestcounter)
+            else
             {
-                largestcounter=counter;
-                num=a;
+                temp = (temp*3) + 1;
+                chain++;
             }
         }
-    cout<<"Longest collatz counter is " << largestcounter<<endl;
-    return;
 
+        if(chain > highest_chain)
+         {
+            number = i;
+            highest_chain = chain;
+         }
+    }
+   cout << "The Highest number of chain below 1000000 is : " << number << "\n1That has a chain of " << chain << endl;
 }
+const int MAX_SOLUTIONS = 1000;
+typedef unsigned long long Long;
+int getSolution(Long n);
 
+int getSolution(Long  n)
+{
+
+    Long maxX = 2*n;
+    register int solutions=0;
+    Long differ;
+    long double y;
+    Long x;
+
+    for(x = n+1; x<=maxX; x++)
+    {
+        differ = x-n;
+
+            y = (x*n)/(long double)differ;
+            if((Long)y == y)
+            {
+                solutions++;
+            }
+
+    }
+
+
+
+    return solutions;
+}
 void project::diophantine_reciprocals_a()
 {
-    cout << "No Answer." << endl;
+    int solutions = 0;
+    cout << "computing..." << endl;
+    Long n=2*3*5*7*11*13;
+    Long x = 2*3*5*7*11*13;
+
+    while(solutions <= MAX_SOLUTIONS)
+    {
+
+        solutions = getSolution(n);
+        n+=x;
+    }
+
+    cout << n-x << endl;
 }
+
 
 void project::power_digit_sum()
 {
     int power = 0, product = 0, hold = 0;
     int digits = 0;
     int summation = 0;
+    cout << "computing..." << endl;
     string total = "1";
 
     for (power = 1; power <= 1000; ++power)
@@ -591,6 +649,7 @@ void project::number_letter_counts()
     const string onek = "one thousand";
     const int hcount = 7;
     const int handcount = 10;
+    cout << "computing..." << endl;
 
       const string units_array[9] = {"one", "two", "three", "four",
       "five", "six", "seven", "eight", "nine"};
@@ -645,6 +704,7 @@ void project::max_path_sum_one()
 {
 
     vector< vector<int> > data;
+    cout << "computing..." << endl;
 
       int arow1[1] = {75};
       vector<int> row1(arow1, arow1 + sizeof(arow1) / sizeof(arow1[0]));
@@ -718,6 +778,7 @@ void project::max_path_sum_one()
 void project::counting_sundays()
 {
     int count = 0, daysmos, days = 1;
+    cout << "computing..." << endl;
 
     for (int i = 1901; i < 2000; i++)
     {
@@ -761,6 +822,7 @@ void project::factorial_digit_sum()
 {
     int i = 0, j = 0;
     int total = 0;
+    cout << "computing..." << endl;
     int array[1000] = {0};
     array[0] = 1;
 
@@ -802,6 +864,7 @@ void project::names_scores()
    getline(myfile,line);
    myfile.close();
    range_x = line.length();
+   cout << "computing..." << endl;
 
    for(int i=0; i<range_x; i++ )
    {
@@ -863,9 +926,40 @@ void project::names_scores()
 
     cout<< "Name Score Summation is:" << sum << endl;
 }
-void project2::first_1000_digit_fibonacci()
+int project::convertCharToNum(char num1)
 {
-     string present = "1";
+    int num;
+    if(num1 == '1') num = 1;
+    else if(num1 == '2') num = 2;
+    else if(num1 == '3') num = 3;
+    else if(num1 == '4') num = 4;
+    else if(num1 == '5') num = 5;
+    else if(num1 == '6') num = 6;
+    else if(num1 == '7') num = 7;
+    else if(num1 == '8') num = 8;
+    else if(num1 == '9') num = 9;
+    else if(num1 == '0') num = 0;
+    return num;
+}
+
+char project::convertNumToChar(int num1)
+{
+    char num;
+    if(num1 == 1) num = '1';
+    else if(num1 == 2) num = '2';
+    else if(num1 == 3) num = '3';
+    else if(num1 == 4) num = '4';
+    else if(num1 == 5) num = '5';
+    else if(num1 == 6) num = '6';
+    else if(num1 == 7) num = '7';
+    else if(num1 == 8) num = '8';
+    else if(num1 == 9) num = '9';
+    else if(num1 == 0) num = '0';
+    return num;
+}
+void project::first_1000_digit_fibonacci()
+{
+    string present = "1";
     string previous = "0";
     string temp = present;
     string temp_sum = "";
@@ -874,6 +968,7 @@ void project2::first_1000_digit_fibonacci()
     int term = 1;
     int range_pt = present.length();
     int range_pv = previous.length();
+    cout << "computing..." << endl;
     while (range_pt < 1000)
     {
         if(range_pt > range_pv)
@@ -884,7 +979,6 @@ void project2::first_1000_digit_fibonacci()
             }
             range_pv = previous.length();
         }
-
         for(int i = range_pt - 1; i >= 0; i--)
         {
             int num_a = convertCharToNum(present.at(i));
@@ -899,19 +993,16 @@ void project2::first_1000_digit_fibonacci()
                 carry = sum/10;
                 temp_sum = convertNumToChar(a) + temp_sum;
             }
-
             else
             {
                 temp_sum = convertNumToChar(sum) + temp_sum;
             }
-
             if(carry != 0 && i == 0)
             {
                 temp_sum = convertNumToChar(carry) + temp_sum;
                 carry = 0;
             }
         }
-
         temp = present;
         present = temp_sum;
         previous = temp;
@@ -920,125 +1011,96 @@ void project2::first_1000_digit_fibonacci()
         range_pt = present.length();
         range_pv = previous.length();
     }
-    cout <<  term << endl;
-}
-bool right(int i)
-{
-    ostringstream convert;
-    convert << i;
-    string x = convert.str();
-    int temp;
-    int remainder;
-    int divide = 10;
-    int times = 1;
-    bool prime = true;
-    int range = x.length();
-
-
-    for(int k = 0; k < range - 1 ; k++)
-    {
-        if(x.at(0) == '1' || x.at(0) == '4' || x.at(0) == '6' || x.at(0) == '8')
-        {
-            prime = false;
-            break;
-        }
-
-        divide = divide*times;
-        remainder = i%divide;
-        temp = i - remainder;
-        temp = temp/divide;
-
-        if(temp == 1)
-        {
-            prime = false;
-            break;
-        }
-
-        for(int j = 2; j < temp; j++)
-        {
-            if(temp%j == 0)
-            {
-                prime = false;
-                k = range;
-                break;
-            }
-        }
-
-        times *= 10;
-    }
-
-    return prime;
+    cout << term << endl;
 }
 
-bool left(int i)
+int project::isprime(int n)
 {
-    ostringstream convert;
-    convert << i;
-    string x = convert.str();
-    bool prime = true;
-    int range = x.length();
-    int divide = 1;
-    int remainder;
-    int temp;
-    for(int k = 0; k < range; k++)
-    {
-        divide *= 10;
-    }
-
-    for(int k = 0; k < range; k++)
+    int i;
+    if(n==1)
+        return(0);
+    for(i=2;i<n/2+1;i++)
     {
 
-        temp = i%divide;
-
-        if(temp == 1)
+        if(n%i==0)
         {
-            prime = false;
+            return(0);
             break;
         }
-
-        for(int j = 2; j < temp; j++)
-        {
-            if(temp%j == 0)
-            {
-                k = range;
-                prime = false;
-                break;
-            }
-        }
-
-        divide /= 10;
     }
-    return prime;
+    return(1);
 }
-void project2::truncable_primes()
+int project::power(int a, int b)
 {
-    int number = 23;
-    int term = 0;
-    int sum = 0;
-    bool ok;
-    while(term < 11)
+    int r = 1;
+    int i=0;
+    for (i=0;i<b;i++){
+        r = r * a;
+    }
+    return r;
+}
+void project::truncable_primes()
+{
+ int count=0,z=0;
+    int i;
+    int n;
+    int z1=0;
+    int p;
+    int count1=0;
+    int digits;
+    int k=1000000;
+    int summation=0;
+    cout << "computing..." << endl;
+    for(i=2;i<k;i++)
     {
-        ok = true;
-        for(int a = 2; a < number; a++)
+        if(isprime(i)==1)
         {
-            if(number%a == 0)
+            z = 0;
+            count = 0;
+            n=i;
+            p=i;
+            while(n>0)
             {
-                ok = false;
-                break;
+                n=n/10;
+                if(isprime(n)==1)
+                {
+                    count++;
+                }else{
+                    count = -1;
+                    break;
+                     }
+                z++;
+            }
+
+            if(z==count)
+            {
+                z1= 0;
+                count1=0;
+                n = i;
+                p= i;
+                while(p>0)
+                {
+                    digits=n%power(10,z1+1);
+                    p = p /10;
+                    if (isprime(digits)==1)
+                    {
+                        count1++;
+                    }else{
+                        count1 =-1;
+                        break;
+                        }
+                    z1++;
+                }
+                if(z1==count1){
+                    if(i>10)
+                    {
+                        summation = summation+i;
+                    }
+                }
             }
         }
-
-        if(ok)
-        {
-            if(right(number) && left(number))
-            {
-                sum += number;
-                term++;
-            }
-        }
-
-        number += 2;
     }
 
-    cout << "Total: " << sum << endl;
+    cout << "The total is: " << summation << endl;
+
 }
